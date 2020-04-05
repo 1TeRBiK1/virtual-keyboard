@@ -1,0 +1,34 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box;
+}
+.areaKeyBoard{
+    width: 100vw;
+    bottom: 0;
+    left: 0vw;
+    position: absolute;
+    top: 50%;
+    background-color: #FF4040;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.keysBoard{
+
+}
+button {
+    min-width: 63px;
+    min-height: 63px;
+    margin: 2px;
+    border-radius: 3px;
+}   
+textarea{
+    width: 100%;
+    padding: 41px 107px;
+    font-size: 33px;
+    resize: none;
+    height: 33.8vw;
+    background-color: #FF7373;
+}
