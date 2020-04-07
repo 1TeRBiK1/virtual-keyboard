@@ -48,3 +48,6 @@ textarea{
     text-align: center;
     color: greenyellow;
 }
+button:hover{
+    opacity: 0.9;
+}
