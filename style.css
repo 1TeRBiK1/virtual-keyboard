@@ -34,7 +34,17 @@ textarea{
 }
 .active {
     border: 2px solid #121CdC;
+    position: relative;
+    top: 3px;
 }
 .About {
-    
+    width: 100%;
+    left: 0vw;
+    position: absolute;
+    top: 97%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: greenyellow;
 }
