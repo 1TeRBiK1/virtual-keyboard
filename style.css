@@ -32,3 +32,9 @@ textarea{
     height: 33.8vw;
     background-color: #FF7373;
 }
+.active {
+    border: 2px solid #121CdC;
+}
+.About {
+    
+}
