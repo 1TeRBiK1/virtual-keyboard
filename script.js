@@ -82,18 +82,19 @@ class KeyBoard {
     mouseClick() {
       document.querySelector('.keysBoard').addEventListener('click', (event) => {
         if (event.target.classList.contains('button')) {
-          const elText = this.Element.textarea;
-          const curPosStart = elText.selectionEnd + 1;
-          const curPosEnd = elText.selectionEnd + 1;
-          const textCurLeft = elText.value.slice(0, curPosStart - 1);
-          const textCurRight = elText.value.slice(curPosStart - 1, elText.length);
+          const elemTextarea = this.Element.textarea;
+          const textareaLength = elemTextarea.length;
+          const cursorPositionStart = elemTextarea.selectionEnd + 1;
+          const cursorPositionEnd = elemTextarea.selectionEnd + 1;
+          const textCurLeft = elemTextarea.value.slice(0, cursorPositionStart - 1);
+          const textCurRight = elemTextarea.value.slice(cursorPositionStart - 1, textareaLength);
           switch (event.target.getAttribute('id')) {
             case constants.BACKSPACE:
-              if (elText.selectionStart !== 0) {
-                elText.value = elText.value.slice(0, curPosStart - 2)
-                 + elText.value.slice(curPosStart - 1, elText.length);
-                elText.selectionStart = curPosEnd - 2;
-                elText.selectionEnd = curPosEnd - 2;
+              if (elemTextarea.selectionStart !== 0) {
+                elemTextarea.value = elemTextarea.value.slice(0, cursorPositionStart - 2)
+                 + elemTextarea.value.slice(cursorPositionStart - 1, textareaLength);
+                elemTextarea.selectionStart = cursorPositionEnd - 2;
+                elemTextarea.selectionEnd = cursorPositionEnd - 2;
               }
               break;
             case constants.CAPSLOCK:
@@ -109,45 +110,45 @@ class KeyBoard {
               if (this.Properties.shift) { this.keyShiftDown(); } else { this.keyShiftUp(); }
               break;
             case constants.ARROW_RIGTH:
-              elText.selectionStart = curPosEnd;
-              elText.selectionEnd = curPosEnd;
+              elemTextarea.selectionStart = cursorPositionEnd;
+              elemTextarea.selectionEnd = cursorPositionEnd;
               break;
 
             case constants.ARROW_LEFT:
-              elText.selectionStart = curPosEnd - 2;
-              elText.selectionEnd = curPosEnd - 2;
+              elemTextarea.selectionStart = cursorPositionEnd - 2;
+              elemTextarea.selectionEnd = cursorPositionEnd - 2;
               break;
 
             case constants.DELETE:
-              elText.value = textCurLeft
-               + elText.value.slice(curPosStart, elText.length);
-              elText.selectionStart = curPosEnd - 1;
-              elText.selectionEnd = curPosEnd - 1;
+              elemTextarea.value = textCurLeft
+               + elemTextarea.value.slice(cursorPositionStart, textareaLength);
+              elemTextarea.selectionStart = cursorPositionEnd - 1;
+              elemTextarea.selectionEnd = cursorPositionEnd - 1;
               break;
 
             case constants.ENTER:
-              elText.value = `${textCurLeft}\r\n${textCurRight}`;
-              elText.selectionStart = curPosStart;
-              elText.selectionEnd = curPosEnd;
+              elemTextarea.value = `${textCurLeft}\r\n${textCurRight}`;
+              elemTextarea.selectionStart = cursorPositionStart;
+              elemTextarea.selectionEnd = cursorPositionEnd;
               break;
 
             case constants.TAB:
-              elText.value = `${textCurLeft}\t${textCurRight}`;
-              elText.selectionStart = curPosStart;
-              elText.selectionEnd = curPosEnd;
+              elemTextarea.value = `${textCurLeft}\t${textCurRight}`;
+              elemTextarea.selectionStart = cursorPositionStart;
+              elemTextarea.selectionEnd = cursorPositionEnd;
               break;
 
             case constants.SPACE:
-              elText.value = `${textCurLeft} ${textCurRight}`;
-              elText.selectionStart = curPosEnd;
-              elText.selectionEnd = curPosEnd;
+              elemTextarea.value = `${textCurLeft} ${textCurRight}`;
+              elemTextarea.selectionStart = cursorPositionEnd;
+              elemTextarea.selectionEnd = cursorPositionEnd;
               break;
 
             default:
               if (!(constants.KEYS_SYSTEM.includes(event.target.getAttribute('id')))) {
-                elText.value = textCurLeft + event.target.innerText + textCurRight;
-                elText.selectionStart = curPosEnd;
-                elText.selectionEnd = curPosEnd;
+                elemTextarea.value = textCurLeft + event.target.innerText + textCurRight;
+                elemTextarea.selectionStart = cursorPositionEnd;
+                elemTextarea.selectionEnd = cursorPositionEnd;
               }
               break;
           }
@@ -232,16 +233,16 @@ class KeyBoard {
           if (this.Properties.lang === constants.SELECTED_LANG_EN) {
             this.Properties.lang = constants.SELECTED_LANG_RU;
             LocalStorageHelper.setLang(this.Properties.lang);
-            document.querySelectorAll('.button').forEach((elem, index) => {
+            document.querySelectorAll('.button').forEach((elem, buttonIndex) => {
               const button = elem;
-              button.innerText = constants.KEYS_VALUES_RU[index];
+              button.innerText = constants.KEYS_VALUES_RU[buttonIndex];
             });
           } else {
             this.Properties.lang = constants.SELECTED_LANG_EN;
             LocalStorageHelper.setLang(this.Properties.lang);
-            document.querySelectorAll('.button').forEach((elem, index) => {
+            document.querySelectorAll('.button').forEach((elem, buttonIndex) => {
               const button = elem;
-              button.innerText = constants.KEYS_VALUES_EN[index];
+              button.innerText = constants.KEYS_VALUES_EN[buttonIndex];
             });
           }
         }
@@ -251,14 +252,14 @@ class KeyBoard {
     keyShiftDown() {
       if (this.Properties.shift) {
         if (this.Properties.lang === constants.SELECTED_LANG_EN) {
-          document.querySelectorAll('.button').forEach((elem, index) => {
+          document.querySelectorAll('.button').forEach((elem, buttonIndex) => {
             const button = elem;
-            button.innerText = constants.KEYS_VALUES_ENG_UP[index];
+            button.innerText = constants.KEYS_VALUES_ENG_UP[buttonIndex];
           });
         } else {
-          document.querySelectorAll('.button').forEach((elem, index) => {
+          document.querySelectorAll('.button').forEach((elem, buttonIndex) => {
             const button = elem;
-            button.innerText = constants.KEYS_VALUES_RU_UP[index];
+            button.innerText = constants.KEYS_VALUES_RU_UP[buttonIndex];
           });
         }
       }
@@ -267,14 +268,14 @@ class KeyBoard {
 
     keyShiftUp() {
       if (this.Properties.lang === constants.SELECTED_LANG_EN) {
-        document.querySelectorAll('.button').forEach((elem, index) => {
+        document.querySelectorAll('.button').forEach((elem, buttonIndex) => {
           const button = elem;
-          button.innerText = constants.KEYS_VALUES_EN[index];
+          button.innerText = constants.KEYS_VALUES_EN[buttonIndex];
         });
       } else {
-        document.querySelectorAll('.button').forEach((elem, index) => {
+        document.querySelectorAll('.button').forEach((elem, buttonIndex) => {
           const button = elem;
-          button.innerText = constants.KEYS_VALUES_RU[index];
+          button.innerText = constants.KEYS_VALUES_RU[buttonIndex];
         });
       }
     }

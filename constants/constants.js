@@ -1,4 +1,5 @@
 export const SELECTED_LANG_EN = 'en';
+export const SELECTED_LANG = 'lang';
 export const SELECTED_LANG_RU = 'ru';
 export const NUM_BUTTON_FIRST_LINE = 14;
 export const NUM_BUTTON_SECOND_LINE = 15;
@@ -46,7 +47,7 @@ export const KEYS_VALUES_RU_UP = ['Ё', '!', '"', '№', ';', '%', ':', '?', '*'
   'CapsLock', 'Ф', 'Ы', 'В', 'А', 'П', 'Р', 'О', 'Л', 'Д', 'Ж', 'Э', 'Enter',
   'Shift', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю', ',', '↑', 'Shift',
   'Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'];
-  
+
 export const KEYS_EVENT_CODE = [
   'Backquote', 'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8', 'Digit9', 'Digit0', 'Minus', 'Equal', 'Backspace',
   'Tab', 'KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 'BracketLeft', 'BracketRight', 'Backslash', 'Delete',
