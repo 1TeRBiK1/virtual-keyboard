@@ -1,44 +1,58 @@
 *{
-    padding: 0;
-    margin: 0;
-    box-sizing:border-box;
+    box-sizing:border-box;  
+}
+body{
+    padding: none;
+    margin: none;
+    background: linear-gradient(45deg, #1F48A3, #1468C4);
 }
 .areaKeyBoard{
-    width: 100vw;
+    width: 70vw;
     bottom: 0;
-    left: 0vw;
+    left: 15vw;
+    z-index: 1;
     position: absolute;
     top: 50%;
-    background-color: #FF4040;
+    background-color: linear-gradient(45deg, #1F48A3, #1468C4);
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
-.keysBoard{
-
-}
 button {
     min-width: 63px;
     min-height: 63px;
     margin: 2px;
-    border-radius: 3px;
+    border-radius: 56px;
     font-size: 20px;
+    background-color: #1F48A3;
+    color: white;
+    outline: none;
 }   
+.button{
+    border: none;
+}
 textarea{
-    width: 100%;
+    outline: none;
+    width: 70vw;
+    left: 15vw;
     padding: 41px 107px;
     font-size: 33px;
     resize: none;
-    height: 33.8vw;
-    background-color: #FF7373;
+    height: 20vw;
+    position: absolute;
+    background: linear-gradient(90deg, #1d4da8, #1663bf);
+    border: none;
 }
-.active {
-    border: 2px solid #121CdC;
+textarea:focus{
+    border: none;
+}
+.key-active, .mouse-active {
+    background-color: #EB135F;
     position: relative;
-    top: 3px;
+    top: 4px;
 }
-.About {
+.about {
     width: 100%;
     left: 0vw;
     position: absolute;
@@ -48,7 +62,4 @@ textarea{
     align-items: center;
     text-align: center;
     color: greenyellow;
-}
-button:hover{
-    opacity: 0.9;
 }
